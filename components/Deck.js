@@ -54,10 +54,10 @@ function Deck () {
 					onPress={() => navigation.navigate('AddCard') } 
 					text='Add Card' 
 				/>
-				{/*<Stack.Navigator>
+				<Stack.Navigator>
 					<Stack.Screen name="Question" component={Question} />
 					<Stack.Screen name="AddCard" component={AddCard} />
-				</Stack.Navigator>*/}
+				</Stack.Navigator>
 			</SafeAreaView>
 		)
 	}

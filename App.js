@@ -87,14 +87,14 @@ export default class App extends Component {
 					/>
 				</Tab.Navigator>
 						
-				<Stack.Navigator>
+				{/*<Stack.Navigator>
 					<Stack.Screen name="Deck" component={Deck} />
 					<Stack.Screen name="AddCard" component={AddCard} />
 					<Stack.Screen name="Question" component={Question} />
 					<Stack.Screen name="NewQuestion" component={NewQuestion} />
 					<Stack.Screen name="Answer" component={Answer} />
 					<Stack.Screen name="Score" component={Score} />
-				</Stack.Navigator>
+				</Stack.Navigator>*/}
 						
 						
 				{/*<Tab.Navigator {...TabNavigatorConfig}>
