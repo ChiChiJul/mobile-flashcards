@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Platform, Flatlist, SafeAreaView } from 'react-native';
 import { SubmitBtn } from '../utils/helpers'
-import { NavigationContainer, createAppContainer } from '@react-navigation/native'
+import { NavigationContainer, useNavigation } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { Question } from './Question'
-import { NewQuestion } from './NewQuestion'
+//import { connect } from 'react-redux'
+import Question from './Question'
+import AddCard from './AddCard'
+import DeckList from './DeckList'
+import NewQuestion from './NewQuestion'
 
-const AppNavigator = createStackNavigator()
 
-const AppContainer = createAppContainer()
+const Stack = createStackNavigator()
 
-class Deck extends Component {
+//const AppContainer = createAppContainer()
+
+function Deck () {
+	const navigation = useNavigation()
+//class Deck extends Component {
 	/*
 	- The deck title
 	- Number of cards in the deck
@@ -18,43 +24,53 @@ class Deck extends Component {
 	- Option to add a new question to the deck
 	*/
 	
-	deckTitle = 'Title'
+	const deckTitle = 'Title'
 	
 	// redirects to Card View
-	startQuiz = () => {
+	/*startQuiz = () => {
 		console.log('Start Quiz')
-	}
+	}*/
 	
-	// adds new question to Deck
-	addNewQuestion = () => {
+	// adds new card to Deck
+	const addCard = () => {
 		console.log('Add New Question')
 	}
 	
 
+	console.log('navigation: ', navigation)
 	
 	
-	render() {
+	/*render() {
+		console.log('this.props: ', this.props)*/
 		return (
 			<SafeAreaView>
-				<Text>{this.deckTitle}</Text>
+				<Text>{deckTitle}</Text>
 				<Text>Number of cards out of total</Text>
 				<SubmitBtn 
-					onPress={() => {
-						this.startQuiz
-						return this.props.navigation.push('Question')
-					}} 
-					text='Submit' 
+					onPress={() => navigation.navigate('Question') } 
+					text='Start Quiz' 
 				/>
 				<SubmitBtn 
-					onPress={() => {
-						this.addNewQuestion
-						return this.props.navigation.navigate('NewQuestion')
-					}} 
-					text='Add New Question' 
+					onPress={() => navigation.navigate('AddCard') } 
+					text='Add Card' 
 				/>
+				{/*<Stack.Navigator>
+					<Stack.Screen name="Question" component={Question} />
+					<Stack.Screen name="AddCard" component={AddCard} />
+				</Stack.Navigator>*/}
 			</SafeAreaView>
 		)
 	}
-}
+	{/*}*/}
 
-export default Deck
+/*function mapStateToProps (state) {
+	console.log('state: ', state)
+	
+	return {
+		state
+	}
+}*/
+
+export default (Deck)
+
+

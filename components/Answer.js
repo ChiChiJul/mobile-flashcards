@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Platform, Flatlist, SafeAreaView } from 'react-native';
 
 class Answer extends Component {
-	let answer = 'The answer'
+	answer = 'The answer'
 	
 	// redirects to Answer Component
 	showQuestion = () => {
@@ -25,7 +25,7 @@ class Answer extends Component {
 				{/* back arrow and Quiz */}
 				<Text>
 					{answer}
-				</Tex>
+				</Text>
 				<Text>Number of questions out of total</Text>
 				<SubmitBtn onPress={this.showQuestion} text='Answer' />
 				<SubmitBtn onPress={this.isCorrect} text='Correct' />

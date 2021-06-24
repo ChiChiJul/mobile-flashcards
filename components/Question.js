@@ -12,7 +12,7 @@ class Question extends Component {
 	- incorrect button
 	*/
 	
-	question = 'A question'
+	//const question = 'A question'
 	
 	// redirects to Answer Component
 	showAnswer = () => {
@@ -34,7 +34,7 @@ class Question extends Component {
 			<SafeAreaView>
 				{/* back arrow and Quiz */}
 				<Text>
-				{question}
+					In the Question Component
 				</Text>
 				<Text>Number of questions out of total</Text>
 				<SubmitBtn onPress={this.showAnswer} text='Answer' />

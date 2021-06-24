@@ -25,8 +25,10 @@ class Score extends Component {
 	
 	render() {
 		return (
-			<SubmitBtn onPress={this.restartQuiz} text={'Restart Quiz'} />
-			<SubmitBtn onPress={this.backToDeck} text={'Back To Deck'} />
+			<SafeAreaView>
+				<SubmitBtn onPress={this.restartQuiz} text={'Restart Quiz'} />
+				<SubmitBtn onPress={this.backToDeck} text={'Back To Deck'} />
+			</SafeAreaView>
 		)
 	}
 }

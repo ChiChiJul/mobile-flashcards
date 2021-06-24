@@ -11,23 +11,23 @@ class AddCard extends Component {
 	// 2. redirects to Deck View 
 	
 	state = {
-		question: ''
+		question: '',
 		answer: ''
 	}
 	
 	constructor(props) {
 		super(props)
-		this.handleChangeText = this.handleChangeText(this)
+		//this.handleChangeText = this.handleChangeText(this)
 	}
 	
 	onChangeText(event = {}) {
 		if (event.name === 'question') {
 			const question = event.target && event.target.name
-			this.setState([question]: value)
+			this.setState(() => ([question]: value))
 		}
 		if (event.name === 'answer') {
 			const answer = event.target && event.target.name
-			this.setState([answer]: value)
+			this.setState(() => ([answer]: value))
 		}
 	}
 	
