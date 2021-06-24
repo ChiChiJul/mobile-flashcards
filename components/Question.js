@@ -12,7 +12,7 @@ class Question extends Component {
 	- incorrect button
 	*/
 	
-	let question = 'A question'
+	question = 'A question'
 	
 	// redirects to Answer Component
 	showAnswer = () => {
@@ -35,7 +35,7 @@ class Question extends Component {
 				{/* back arrow and Quiz */}
 				<Text>
 				{question}
-				</Tex>
+				</Text>
 				<Text>Number of questions out of total</Text>
 				<SubmitBtn onPress={this.showAnswer} text='Answer' />
 				<SubmitBtn onPress={this.isCorrect} text='Correct' />

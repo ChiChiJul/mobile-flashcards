@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, TextInput, View, Platform, Flatlist, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Platform, Flatlist, SafeAreaView } from 'react-native';
+import { SubmitBtn } from '../utils/helpers'
 
 class NewDeck extends Component {
 	// TextInput for new Deck name
@@ -8,7 +9,7 @@ class NewDeck extends Component {
 	// add Deck to DeckList
 	
 	state = {
-		deckName: ''
+		newDeckName: ''
 	}
 	
 	constructor(props) {
@@ -16,24 +17,29 @@ class NewDeck extends Component {
 		this.handleChangeText = this.handleChangeText.bind(this)
 	}
 	
-	handleChangeText( event = {} ) => {
-		const deckName = event.target && event.target.name
+	handleChangeText( event = {} ) {
+		const newDeckName = event.target && event.target.name
 		const value = event.target && event.target.value
 		this.setState(() =>({
-			[deckName]: value 
+			[newDeckName]: value 
 		}))
+	}
+	
+	submitNewQuestion = () => {
+		console.log('create a new deck')
 	}
 	
 	render() {
 		return (
 			<SafeAreaView>
+				<Text>What is the new deck name?</Text>
 				<TextInput 
-					name='deckname'
-					onChangeText={handleChangeText}
-					value={this.state.deckName}
-					placeholder='Question'
+					name='newDeckName'
+					onChangeText={this.handleChangeText}
+					value={this.state.newDeckName}
+					placeholder='New Deck Name'
 				/>
-			
+				<SubmitBtn onPress={this.submitNewQuestion} text='Submit' />
 			</SafeAreaView>
 		)
 	}

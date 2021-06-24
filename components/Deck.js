@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Platform, Flatlist, SafeAreaView } from 'react-native';
 import { SubmitBtn } from '../utils/helpers'
+import { NavigationContainer, createAppContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { Question } from './Question'
+import { NewQuestion } from './NewQuestion'
+
+const AppNavigator = createStackNavigator()
+
+const AppContainer = createAppContainer()
 
 class Deck extends Component {
 	/*
@@ -10,7 +18,7 @@ class Deck extends Component {
 	- Option to add a new question to the deck
 	*/
 	
-	const deckTitle = 'Title'
+	deckTitle = 'Title'
 	
 	// redirects to Card View
 	startQuiz = () => {
@@ -22,14 +30,28 @@ class Deck extends Component {
 		console.log('Add New Question')
 	}
 	
+
+	
 	
 	render() {
 		return (
 			<SafeAreaView>
-				<Text>{this.dectTitle}</Text>
+				<Text>{this.deckTitle}</Text>
 				<Text>Number of cards out of total</Text>
-				<SubmitBtn onPress={this.startQuiz} text='Submit' />
-				<SubmitBtn onPress={this.AddNewQuestion} text='Add New Question' />
+				<SubmitBtn 
+					onPress={() => {
+						this.startQuiz
+						return this.props.navigation.push('Question')
+					}} 
+					text='Submit' 
+				/>
+				<SubmitBtn 
+					onPress={() => {
+						this.addNewQuestion
+						return this.props.navigation.navigate('NewQuestion')
+					}} 
+					text='Add New Question' 
+				/>
 			</SafeAreaView>
 		)
 	}
