@@ -18,3 +18,20 @@ export function SubmitBtn({ onPress, text }) {
 		</TouchableOpacity>
 	)
 }
+
+
+/*export function getDecks() {
+	return ()
+}
+
+export function getDeck(id) {
+	return ()
+}
+
+export function saveDeckTitle({ title }) {
+	
+}
+
+export function addCardToDeck({ title, card }) {
+	
+}*/

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, TextInput, View, Platform, Flatlist, SafeAreaView } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack'
 import { SubmitBtn } from '../utils/helpers'
+import DeckList from './DeckList'
+
+const Stack = createStackNavigator()
 
 class NewDeck extends Component {
 	// TextInput for new Deck name
@@ -25,11 +29,13 @@ class NewDeck extends Component {
 		}))
 	}
 	
-	submitNewQuestion = () => {
+	submitNewDeck = () => {
 		console.log('create a new deck')
 	}
 	
 	render() {
+		console.log('this.props: ', this.props)
+		const navigation = this.props.navigation
 		return (
 			<SafeAreaView>
 				<Text>What is the new deck name?</Text>
@@ -39,7 +45,18 @@ class NewDeck extends Component {
 					value={this.state.newDeckName}
 					placeholder='New Deck Name'
 				/>
-				<SubmitBtn onPress={this.submitNewQuestion} text='Submit' />
+				<SubmitBtn 
+					onPress={() => {
+						this.submitNewDeck
+						return (() => 
+							navigation.navigator('DeckList')
+						)
+					}}
+					text='Submit' 
+				/>
+				<Stack.Navigator>
+					<Stack.Screen name='DeckList' component={DeckList} />
+				</Stack.Navigator>
 			</SafeAreaView>
 		)
 	}

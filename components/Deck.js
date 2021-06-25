@@ -1,16 +1,33 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Platform, Flatlist, SafeAreaView } from 'react-native';
 import { SubmitBtn } from '../utils/helpers'
-import { NavigationContainer, useNavigation } from '@react-navigation/native'
+import { NavigationContainer, useNavigation, getFocusedRouteNameFromRoute } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 //import { connect } from 'react-redux'
 import Question from './Question'
 import AddCard from './AddCard'
-import DeckList from './DeckList'
+//import DeckList from './DeckList'
 import NewQuestion from './NewQuestion'
 
-
 const Stack = createStackNavigator()
+
+export function getHeaderTitle(route) {
+	console.log('route: ', route)
+	console.log('route.name: ', route.name)
+	
+	const routeName = getFocusedRouteNameFromRoute(route) ?? route.name;
+	
+	console.log('routeName: ', routeName)
+	
+	switch (routeName) {
+		case 'Question' :
+			return 'Question';
+		case 'AddCard' :
+			return 'AddCard';
+		default	:
+			return null;
+		}
+}
 
 //const AppContainer = createAppContainer()
 
@@ -55,8 +72,20 @@ function Deck () {
 					text='Add Card' 
 				/>
 				<Stack.Navigator>
-					<Stack.Screen name="Question" component={Question} />
-					<Stack.Screen name="AddCard" component={AddCard} />
+					<Stack.Screen 
+						name="Question" 
+						component={Question} 
+						options={({ route }) => ({
+							headerTitle: getHeaderTitle(route),
+						})}
+					/>
+					<Stack.Screen 
+						name="AddCard" 
+						component={AddCard} 
+						options={({ route }) => ({
+							headerTitle: getHeaderTitle(route),
+						})}
+					/>
 				</Stack.Navigator>
 			</SafeAreaView>
 		)
