@@ -8,15 +8,20 @@ import { fetchAllDecks } from '../utils/api'
 import { receiveDecks } from '../actions'
 
 class DeckList extends Component {
-	//console.log('this.props: ', this.props)
 	componentDidMount() {
+		console.log('this.props: ', this.props)
 		const { dispatch } = this.props
 		
 		fetchAllDecks()
 			.then((decks) => dispatch(receiveDecks(decks)))
 	}
 	render() {
-		console.log('this.props: ', this.props)
+		console.log('this.props.state: ', this.props.state)
+		
+		const decks = this.props.state
+		console.log('tyoe of decks: ', typeof(decks))
+		//console.log('decks: ', JSON.parse(decks))
+		
 		return (
 			<SafeAreaView>
 				<Deck />
@@ -29,7 +34,7 @@ class DeckList extends Component {
 }
 
 function mapStateToProps(state) {
-	console.log('state: ', state)
+	//console.log('state: ', JSON.parse(state));
 	return {
 		state
 	}

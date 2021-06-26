@@ -19,7 +19,8 @@ import Answer from './components/Answer'
 import Score from './components/Score'
 import { purple, white, pink } from './utils/colors'
 import reducer from './reducers'
-import { setData, setMyDeckData } from './utils/_calendar'
+import { setDeckData } from './utils/_calendar'
+//import * as ErrorRecovery from 'expo-error-recovery'
 
 console.log('reducer: ', reducer)
 
@@ -97,8 +98,9 @@ function HomeTabs() {
 
 export default class App extends Component {
 	componentDidMount() {
+		//ErrorRecovery.setRecoveryProps(props)
 		console.log('in App. componentDidMount()')
-		setMyDeckData()
+		setDeckData()
 	}
 	render() {
 		const store = createStore(reducer)
