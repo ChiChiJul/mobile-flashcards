@@ -100,7 +100,7 @@ export default class App extends Component {
 	componentDidMount() {
 		//ErrorRecovery.setRecoveryProps(props)
 		console.log('in App. componentDidMount()')
-		//setDeckData()
+		setDeckData()
 	}
 	render() {
 		const store = createStore(reducer)
