@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, Platform, Flatlist, SafeAreaView } from 'react-native';
 import { SubmitBtn } from '../utils/helpers'
+import { useNavigation } from '@react-navigation/native'
+import Answer from './Answer'
 
-class Question extends Component {
+function Question () {
 	/*
 	- back arrow, and Quiz
 	- question
@@ -12,24 +14,26 @@ class Question extends Component {
 	- incorrect button
 	*/
 	
+	const navigation = useNavigation()
+	
 	//const question = 'A question'
 	
 	// redirects to Answer Component
-	showAnswer = () => {
+	const showAnswer = () => {
 		console.log('Show Answer')
 	}
 	
 	// dispatchs 'correct' to question 
-	isCorrect = () => {
+	const isCorrect = () => {
 		console.log('Your guess is correct!')
 	}
 	
 	// dipatchs 'incorrect' to question
-	isIncorrect = () => {
+	const isIncorrect = () => {
 		console.log('Your guess is incorrect')
 	}
 	
-	render() {
+//	render() {
 		return (
 			<SafeAreaView>
 				{/* back arrow and Quiz */}
@@ -37,12 +41,14 @@ class Question extends Component {
 					In the Question Component
 				</Text>
 				<Text>Number of questions out of total</Text>
-				<SubmitBtn onPress={this.showAnswer} text='Answer' />
-				<SubmitBtn onPress={this.isCorrect} text='Correct' />
-				<SubmitBtn onPress={this.isIncorrect} text='Incorrect' />
+				<SubmitBtn 
+					onPress={() => navigation.navigate('Answer') } 
+					text='Answer' />
+				<SubmitBtn onPress={isCorrect} text='Correct' />
+				<SubmitBtn onPress={isIncorrect} text='Incorrect' />
 			</SafeAreaView>
 		)
-	}
+//	}
 }
 
 export default Question

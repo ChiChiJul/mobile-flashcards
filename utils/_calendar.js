@@ -32,7 +32,7 @@ export function setDeckData () {
 	
 	console.log('dummyData: ', dummyData)
 
-	AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(dummyData))
+	//AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(dummyData))
 	
 	return dummyData
 } 

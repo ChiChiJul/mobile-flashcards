@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Platform, Flatlist, SafeAreaView } from 'react-native';
 import { SubmitBtn } from '../utils/helpers'
-import { NavigationContainer, useNavigation, getFocusedRouteNameFromRoute } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import { useNavigation } from '@react-navigation/native'
+//import { createStackNavigator } from '@react-navigation/stack'
 //import { connect } from 'react-redux'
 import Question from './Question'
 import AddCard from './AddCard'
 //import DeckList from './DeckList'
 import NewQuestion from './NewQuestion'
 
-const Stack = createStackNavigator()
+//const Stack = createStackNavigator()
 
-export function getHeaderTitle(route) {
+/*export function getHeaderTitle(route) {
 	console.log('route: ', route)
 	console.log('route.name: ', route.name)
 	
@@ -27,7 +27,7 @@ export function getHeaderTitle(route) {
 		default	:
 			return null;
 		}
-}
+}*/
 
 //const AppContainer = createAppContainer()
 
@@ -71,7 +71,7 @@ function Deck () {
 					onPress={() => navigation.navigate('AddCard') } 
 					text='Add Card' 
 				/>
-				<Stack.Navigator>
+				{/*<Stack.Navigator>
 					<Stack.Screen 
 						name="Question" 
 						component={Question} 
@@ -86,7 +86,7 @@ function Deck () {
 							headerTitle: getHeaderTitle(route),
 						})}
 					/>
-				</Stack.Navigator>
+				</Stack.Navigator>*/}
 			</SafeAreaView>
 		)
 	}

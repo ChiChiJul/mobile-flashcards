@@ -100,7 +100,7 @@ export default class App extends Component {
 	componentDidMount() {
 		//ErrorRecovery.setRecoveryProps(props)
 		console.log('in App. componentDidMount()')
-		setDeckData()
+		//setDeckData()
 	}
 	render() {
 		const store = createStore(reducer)
@@ -122,7 +122,9 @@ export default class App extends Component {
 							headerTitle: getHeaderTitle(route),
 						})}
 					/>
-					{/*<Stack.Screen name='Deck' component={Deck} />*/}
+					<Stack.Screen name='Deck' component={Deck} />
+					<Stack.Screen name='Question' component={Question} />
+					<Stack.Screen name='AddCard' component={AddCard} />
 				</Stack.Navigator>
 			</NavigationContainer>
 	        <StatusBar style="auto" />
