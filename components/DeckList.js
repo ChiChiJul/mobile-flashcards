@@ -20,7 +20,7 @@ class DeckList extends Component {
 		
 		const decks = this.props.state
 		console.log('tyoe of decks: ', typeof(decks))
-		//console.log('decks: ', JSON.parse(decks))
+		console.log('decks: ', JSON.parse(decks))
 		
 		return (
 			<SafeAreaView>
